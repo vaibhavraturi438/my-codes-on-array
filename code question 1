@@ -1,0 +1,90 @@
+Question 1 : Given an array A of size N, your task is to do some operations, i.e., search an element, insert an element, and delete an element by completing the functions. Also, all functions should return a boolean value.
+
+Input Format:
+The first line of input consists of T, the number of test cases. T testcases follow. Each testcase contains 3 lines of input. The first line of every test case consists of an integer N, denotes the number of elements in an array. The second line of every test cases consists of N spaced integers Ai. The third line of every test case consists of four integers X, Y, Yi and Z, denoting the elements for the search operation, insert operation, insert operation element index and delete operation respectively.
+
+Output Format:
+For each testcase, return 1 for each operation if done successfully else 0.
+
+Your Task:
+Since this is a function problem, you only need to complete the provided functions.
+
+Constraints:
+1 <= T <= 100
+1 <= N <= 100
+0 <= Ai <= 1000
+
+Example:
+Input:
+1
+5
+2 4 1 0 6
+1 2 2 0
+Output:
+1 1 1
+
+
+
+Solution :
+bool searchEle(int a[],int x)
+{
+   unsigned int len = (sizeof(a))/(sizeof(int));
+   unsigned int i = 0;
+   
+   for (i=0; i<1000; i++)
+   {
+       if (a[i] == x)
+       {
+           return 1;
+       }
+   }
+   return 0;
+}
+
+bool insertEle(int a[],int y,int yi)
+{
+   unsigned int len = (sizeof(a))/(sizeof(int));
+   unsigned int i = 0;
+   
+   for (i=0; i<1000; i++)
+   {
+       if (i == yi)
+       {
+           a[i] = y;
+           return 1;
+       }
+   }
+   return 0;
+}
+
+bool deleteEle(int a[],int z)
+{
+   int count=0;
+   for(int i=1;i<=100;i++)
+   {
+       if(a[i]==z)
+       {
+           for(int j=i;j<100;j++)
+           {
+               a[i]=a[i+1];
+           }
+       }
+   }
+
+   for(int i=1;i<=100;i++)
+   {
+       if(a[i]==z)
+       {
+           count++;
+       }
+   }
+   
+   if(count==0)
+   {
+       return true;
+   }
+   else
+   {
+       return false;
+   }
+}
